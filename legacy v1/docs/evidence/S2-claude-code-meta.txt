@@ -1,0 +1,6 @@
+# S2 Spike: Claude Code Headless JSON
+CLI: claude
+Version: 2.1.228 (Claude Code)
+Timestamp: 2026-09-21T18:33:02+05:30Exit code: 
+
+Exit code: 

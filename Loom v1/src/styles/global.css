@@ -1,0 +1,680 @@
+/* 全局样式入口：集中定义字体、窗口壳与主题变量，并对第三方组件做必要覆盖。 */
+@import "./animations.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: theme('fontFamily.sans');
+    font-size: 13px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background-color: oklch(var(--color-background));
+    color: oklch(var(--color-text));
+  }
+  /* Numbers line up in lists, timestamps and counters. */
+  time,
+  .tabular,
+  [data-tabular] {
+    font-variant-numeric: tabular-nums;
+  }
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: theme('fontFamily.mono');
+  }
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  ::selection {
+    background: oklch(var(--color-primary) / 0.3);
+  }
+}
+
+@font-face {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+  src: url("../assets/fonts/MaterialSymbolsOutlined.woff2") format("woff2");
+}
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+body {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+.member-avatar-button,
+.member-avatar-button:focus:not(:focus-visible),
+.member-avatar-button:active {
+  outline: none;
+  box-shadow: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  background: transparent;
+}
+
+html {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+#app {
+  width: 100%;
+}
+
+.xterm {
+  overflow: hidden;
+}
+
+.xterm .xterm-scrollable-element {
+  overflow-x: hidden;
+}
+
+.xterm-viewport {
+  overflow-x: hidden !important;
+}
+
+.xterm .xterm-helpers {
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+/* xterm 依赖隐藏 textarea 处理输入与 IME，此处压缩尺寸避免布局干扰。 */
+.xterm .xterm-helper-textarea {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  max-width: 1px !important;
+  max-height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  border: 0 !important;
+  margin: 0 !important;
+  opacity: 0 !important;
+  z-index: -1;
+}
+
+.xterm .composition-view {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.xterm .xterm-screen {
+  overflow: hidden;
+}
+
+.window-frame {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 0;
+  background-color: oklch(var(--color-background));
+  box-shadow: var(--window-glow);
+}
+
+/* Glass surface primitives */
+.glass-panel {
+  background-color: oklch(var(--color-surface));
+  border: 1px solid oklch(var(--color-line));
+}
+
+.glass-modal {
+  background-color: oklch(var(--color-surface-2));
+  border: 1px solid oklch(var(--color-line-strong));
+  box-shadow: var(--shadow-modal);
+}
+
+.window-frame--max {
+  border-radius: 0;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.window-frame--inactive {
+  box-shadow: var(--window-glow-inactive);
+}
+
+.window-body {
+  flex: 1;
+  min-height: 0;
+}
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 36px;
+  padding: 0 6px 0 14px;
+  background: oklch(var(--color-background));
+  border-bottom: 1px solid oklch(var(--color-line));
+}
+
+.titlebar--mac {
+  padding-left: 82px;
+}
+
+.titlebar--workspace {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.titlebar__left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.titlebar__title {
+  font-family: theme('fontFamily.mono');
+  font-size: 12px;
+  font-weight: 500;
+  color: oklch(var(--color-text-faint));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.titlebar__controls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.titlebar__btn {
+  width: 46px;
+  height: 30px;
+  border-radius: 6px;
+  border: 0;
+  background: transparent;
+  color: oklch(var(--color-text) / 0.6);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.titlebar__btn svg {
+  width: 10px;
+  height: 10px;
+}
+
+.titlebar__btn:hover {
+  background: oklch(var(--color-overlay) / 0.12);
+  color: oklch(var(--color-text) / 0.9);
+}
+
+.titlebar__btn:active {
+  background: oklch(var(--color-overlay) / 0.2);
+}
+
+.titlebar__btn--close:hover {
+  background: rgb(239 68 68 / 0.85);
+  color: #fff;
+}
+
+.window-frame--hover-stale .titlebar__btn:hover {
+  background: transparent;
+  color: oklch(var(--color-text) / 0.6);
+}
+
+.window-frame--hover-stale .titlebar__btn--close:hover {
+  background: transparent;
+  color: oklch(var(--color-text) / 0.6);
+}
+
+.window-frame--inactive .titlebar {
+}
+
+.window-frame--inactive .titlebar__title {
+  font-family: theme('fontFamily.mono');
+  font-size: 12px;
+  font-weight: 500;
+  color: oklch(var(--color-text-faint));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.window-frame--inactive .titlebar__btn {
+  color: oklch(var(--color-text) / 0.45);
+}
+
+.selectable,
+.allow-select,
+.prose {
+  -webkit-user-select: text;
+  user-select: text;
+  cursor: text;
+}
+
+input,
+textarea,
+[contenteditable='true'] {
+  -webkit-user-select: text;
+  user-select: text;
+  cursor: text;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: oklch(var(--scrollbar-thumb));
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: oklch(var(--scrollbar-thumb-hover));
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(var(--scrollbar-thumb)) transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+/* Theme tokens: OKLCH "L C H" triplets, consumed as oklch(var(--token) / alpha).
+   One neutral hue family (255) and one accent (amber by default; Settings can swap it via data-accent). */
+:root {
+  --color-background: 0.155 0.006 255;
+  --color-surface: 0.185 0.007 255;
+  --color-surface-2: 0.215 0.008 255;
+  --color-panel: 0.185 0.007 255;
+  --color-panel-strong: 0.215 0.008 255;
+  --color-panel-soft: 0.25 0.009 255;
+  --color-hover: 0.25 0.009 255;
+  --color-line: 0.29 0.010 255;
+  --color-line-strong: 0.37 0.012 255;
+  --color-text: 0.94 0.005 255;
+  --color-text-muted: 0.72 0.010 255;
+  --color-text-faint: 0.57 0.012 255;
+  --color-border: 0.94 0.005 255;
+  --color-overlay: 1 0 0;
+  --color-primary: 0.80 0.13 70;
+  --color-primary-hover: 0.76 0.13 70;
+  --color-on-primary: 0.22 0.03 70;
+  --color-secondary: 0.72 0.010 255;
+  --color-success: 0.74 0.12 155;
+  --color-warning: 0.82 0.14 90;
+  --color-danger: 0.66 0.17 25;
+  --scrollbar-thumb: 0.30 0.010 255;
+  --scrollbar-thumb-hover: 0.38 0.012 255;
+  --shadow-modal: 0 16px 40px -12px oklch(0.1 0.02 255 / 0.55);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --window-glow: none;
+  --window-glow-inactive: none;
+  --z-context-menu: 60;
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --color-background: 0.985 0.003 255;
+  --color-surface: 0.97 0.004 255;
+  --color-surface-2: 1 0 0;
+  --color-panel: 0.97 0.004 255;
+  --color-panel-strong: 1 0 0;
+  --color-panel-soft: 0.945 0.005 255;
+  --color-hover: 0.945 0.005 255;
+  --color-line: 0.90 0.006 255;
+  --color-line-strong: 0.82 0.008 255;
+  --color-text: 0.22 0.010 255;
+  --color-text-muted: 0.46 0.012 255;
+  --color-text-faint: 0.58 0.012 255;
+  --color-border: 0.22 0.010 255;
+  --color-overlay: 0.22 0.010 255;
+  --color-primary: 0.60 0.14 60;
+  --color-primary-hover: 0.55 0.14 60;
+  --color-on-primary: 0.99 0 0;
+  --color-secondary: 0.46 0.012 255;
+  --color-success: 0.55 0.13 155;
+  --color-warning: 0.62 0.14 85;
+  --color-danger: 0.55 0.19 25;
+  --scrollbar-thumb: 0.82 0.008 255;
+  --scrollbar-thumb-hover: 0.70 0.010 255;
+  --shadow-modal: 0 16px 40px -12px oklch(0.3 0.02 255 / 0.18);
+  --window-glow: none;
+  --window-glow-inactive: none;
+  color-scheme: light;
+}
+
+:root[data-theme='system'] {
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root[data-theme='system'] {
+    --color-background: 0.985 0.003 255;
+    --color-surface: 0.97 0.004 255;
+    --color-surface-2: 1 0 0;
+    --color-panel: 0.97 0.004 255;
+    --color-panel-strong: 1 0 0;
+    --color-panel-soft: 0.945 0.005 255;
+    --color-hover: 0.945 0.005 255;
+    --color-line: 0.90 0.006 255;
+    --color-line-strong: 0.82 0.008 255;
+    --color-text: 0.22 0.010 255;
+    --color-text-muted: 0.46 0.012 255;
+    --color-text-faint: 0.58 0.012 255;
+    --color-border: 0.22 0.010 255;
+    --color-overlay: 0.22 0.010 255;
+    --color-primary: 0.60 0.14 60;
+    --color-primary-hover: 0.55 0.14 60;
+    --color-on-primary: 0.99 0 0;
+    --color-secondary: 0.46 0.012 255;
+    --color-success: 0.55 0.13 155;
+    --color-warning: 0.62 0.14 85;
+    --color-danger: 0.55 0.19 25;
+    --scrollbar-thumb: 0.82 0.008 255;
+    --scrollbar-thumb-hover: 0.70 0.010 255;
+    --shadow-modal: 0 16px 40px -12px oklch(0.3 0.02 255 / 0.18);
+    color-scheme: light;
+  }
+}
+
+.app-shell {
+  background: transparent;
+}
+
+.skill-modal {
+  background-color: oklch(var(--color-panel-strong) / 0.97);
+}
+
+.skill-card {
+  background-color: oklch(var(--color-panel) / 0.7);
+  isolation: isolate;
+}
+
+/* skill-card-accent is now a no-op — kept to avoid removing markup from templates */
+.skill-card-accent {
+  display: none;
+}
+
+.skill-card > *:not(.skill-card-accent) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Text on the accent follows the accent's own contrast token (dark ink on amber, white on deep hues). */
+.text-on-primary,
+.hover\:text-on-primary:hover,
+.group:hover .group-hover\:text-on-primary {
+  color: oklch(var(--color-on-primary));
+}
+
+.settings-select {
+  appearance: base-select;
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid oklch(var(--color-border) / 0.1);
+  background: oklch(var(--color-surface));
+  color: oklch(var(--color-text));
+  color-scheme: dark;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding: 0.625rem 2.5rem 0.625rem 1rem;
+}
+
+.settings-select:focus-visible {
+  outline: none;
+  border-color: oklch(var(--color-primary) / 0.5);
+  box-shadow: 0 0 0 1px oklch(var(--color-primary) / 0.5);
+}
+
+.settings-select:open {
+  border-color: oklch(var(--color-primary) / 0.4);
+  box-shadow: 0 0 0 1px oklch(var(--color-primary) / 0.35);
+}
+
+.settings-select::picker(select) {
+  background: oklch(var(--color-panel-strong));
+  border: 1px solid oklch(var(--color-border) / 0.1);
+  border-radius: 0.75rem;
+  padding: 0.25rem;
+  box-shadow: var(--shadow-modal);
+  color: oklch(var(--color-text));
+}
+
+.settings-select option {
+  padding: 0.5rem 0.75rem;
+  color: oklch(var(--color-text));
+  background: oklch(var(--color-background));
+}
+
+.settings-select option:hover,
+.settings-select option:focus-visible {
+  background: oklch(var(--color-text-muted) / 0.55);
+  color: oklch(var(--color-background));
+}
+
+.settings-select option:checked {
+  background: rgb(255 255 255 / 0.35);
+  color: oklch(var(--color-background));
+  font-weight: 600;
+}
+
+.settings-select option::checkmark {
+  color: oklch(var(--color-background));
+}
+
+.settings-select::picker-icon {
+  color: oklch(var(--color-text) / 0.6);
+}
+
+:root[data-resolved-theme='light'] .settings-select {
+  color-scheme: light;
+}
+
+:root[data-resolved-theme='light'] .settings-select option:hover,
+:root[data-resolved-theme='light'] .settings-select option:focus-visible,
+:root[data-resolved-theme='light'] .settings-select option:checked {
+  background: oklch(var(--color-panel-strong));
+  color: oklch(var(--color-text));
+}
+
+:root[data-resolved-theme='light'] .settings-select option::checkmark {
+  color: oklch(var(--color-text));
+}
+
+/* Chat markdown (agent replies). Compact rhythm for a dense tool; code is the one place with a filled surface. */
+.md > :first-child {
+  margin-top: 0;
+}
+.md > :last-child {
+  margin-bottom: 0;
+}
+.md p,
+.md ul,
+.md ol,
+.md pre,
+.md blockquote,
+.md table,
+.md .md-code {
+  margin: 0.4em 0;
+}
+.md p {
+  line-height: 1.55;
+  max-width: 76ch;
+}
+.md strong {
+  font-weight: 600;
+  color: oklch(var(--color-text));
+}
+.md a {
+  color: oklch(var(--color-primary));
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: oklch(var(--color-primary) / 0.4);
+}
+.md ul {
+  list-style: disc;
+  padding-left: 1.25em;
+}
+.md ol {
+  list-style: decimal;
+  padding-left: 1.4em;
+}
+.md li + li {
+  margin-top: 0.15em;
+}
+.md li::marker {
+  color: oklch(var(--color-text-faint));
+}
+.md h1,
+.md h2,
+.md h3,
+.md h4 {
+  margin: 0.8em 0 0.3em;
+  font-weight: 600;
+  color: oklch(var(--color-text));
+}
+.md h1 {
+  font-size: 16px;
+}
+.md h2 {
+  font-size: 14px;
+}
+.md h3,
+.md h4 {
+  font-size: 13px;
+}
+.md blockquote {
+  border-left: 2px solid oklch(var(--color-line-strong));
+  padding-left: 0.8em;
+  color: oklch(var(--color-text-muted));
+}
+.md hr {
+  border: 0;
+  border-top: 1px solid oklch(var(--color-line));
+  margin: 0.8em 0;
+}
+.md :not(pre) > code {
+  font-family: theme('fontFamily.mono');
+  font-size: 0.92em;
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  background: oklch(var(--color-overlay) / 0.07);
+  color: oklch(var(--color-text));
+}
+.md .md-code {
+  position: relative;
+  border: 1px solid oklch(var(--color-line));
+  border-radius: 7px;
+  background: oklch(var(--color-surface));
+  overflow: hidden;
+}
+.md .md-code-lang {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-family: theme('fontFamily.mono');
+  font-size: 11px;
+  color: oklch(var(--color-text-faint));
+}
+.md pre {
+  margin: 0;
+  padding: 10px 12px;
+  overflow-x: auto;
+  font-family: theme('fontFamily.mono');
+  font-size: 12px;
+  line-height: 1.55;
+}
+.md table {
+  border-collapse: collapse;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.md th,
+.md td {
+  border: 1px solid oklch(var(--color-line));
+  padding: 4px 8px;
+  text-align: left;
+}
+.md th {
+  font-weight: 600;
+  background: oklch(var(--color-overlay) / 0.04);
+}
+.md .md-mention {
+  color: oklch(var(--color-primary));
+  font-weight: 500;
+}
+
+/* Motion: exponential ease-out, transform/opacity only; honor reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+button:not(:disabled):active {
+  transform: translateY(1px);
+}
+
+/* Visible keyboard focus everywhere; mouse focus stays quiet. */
+:focus-visible {
+  outline: 2px solid oklch(var(--color-primary));
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}

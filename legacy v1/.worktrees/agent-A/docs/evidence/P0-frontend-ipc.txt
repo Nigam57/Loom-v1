@@ -1,0 +1,13 @@
+IPC Test Screen Simulation Log:
+
+[14:24:10] detect_agents
+[{"id":"claude","name":"Claude Code","installed":true,"path":"C:\\Users\\Nigam\\AppData\\Roaming\\npm\\claude.cmd","requires_wsl":false,"reason":null},{"id":"coder","name":"Codex","installed":false,"path":null,"requires_wsl":false,"reason":"coder not found in PATH"},{"id":"opencode","name":"OpenCode","installed":true,"path":"C:\\Users\\Nigam\\AppData\\Roaming\\npm\\opencode.cmd","requires_wsl":false,"reason":null},{"id":"agy","name":"agy","installed":true,"path":"C:\\Users\\Nigam\\AppData\\Local\\agy\\bin\\agy.exe","requires_wsl":false,"reason":null},{"id":"hermes","name":"Hermes Agent","installed":false,"path":null,"requires_wsl":false,"reason":"hermes not found in PATH"},{"id":"odysseus","name":"Odysseus","installed":false,"path":null,"requires_wsl":false,"reason":"odysseus not found in PATH"}]
+
+[14:24:15] spawn_agent
+PID: 0, Session: fake-test-1726888492
+
+[14:24:20] spawn_agent
+PIDs: 0, 0
+
+[14:24:21] run_handoff
+{"stop_reason":{"MaxTurns":{"limit":3}},"turns_used":3,"total_cost_cents":0,"trace":[{"timestamp_ms":1726888495000,"event_type":"start","agent":"router","detail":"Starting handoff: Hello, work together!"}]}

@@ -1,0 +1,265 @@
+<template>
+  <div class="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 animate-in fade-in duration-200">
+    <div class="w-full max-w-2xl bg-panel-strong/90 border border-border/10 rounded-2xl shadow-float flex flex-col max-h-[85vh] ring-1 ring-border/5">
+      <div class="px-8 py-6 border-b border-border/5 flex justify-between items-start bg-overlay/[0.02]">
+        <div class="space-y-1.5 w-full mr-8">
+          <h2 class="text-xl font-semibold text-text tracking-tight flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-primary border border-primary/20 shadow-[0_0_15px_oklch(var(--color-primary)_/_0.2)]">
+              <span class="material-symbols-outlined text-xl">checklist</span>
+            </div>
+            {{ t('roadmap.title') }}
+          </h2>
+          <div class="pl-[44px] flex items-center w-full">
+            <div class="flex-1 relative group">
+              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <span class="text-text/30 text-sm font-semibold">{{ t('roadmap.objectiveLabel') }}</span>
+              </div>
+              <input
+                v-model="objectiveValue"
+                class="w-full bg-overlay/[0.03] border border-border/5 rounded-lg py-2 pl-[84px] pr-8 text-text/80 text-sm font-medium placeholder-text/20 focus:outline-none focus:bg-overlay/[0.06] focus:border-primary/40 focus:ring-1 focus:ring-primary/40 transition duration-200"
+                type="text"
+                @blur="persistRoadmap"
+              />
+              <div class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                <span class="material-symbols-outlined text-text/20 text-base">edit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" @click="emit('close')" class="w-8 h-8 rounded-full hover:bg-overlay/10 text-text/40 hover:text-text flex items-center justify-center transition-colors shrink-0">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+
+      <div ref="listRef" class="p-6 overflow-y-auto custom-scrollbar space-y-3">
+        <div
+          v-for="task in tasks"
+          :key="task.id"
+          :class="[
+            'relative group flex items-center gap-4 p-3 pr-4 rounded-xl border transition duration-200',
+            openMenuId === task.id
+              ? 'bg-overlay/[0.04] border-border/10 z-20'
+              : 'bg-overlay/[0.02] border-border/5 hover:border-border/10 hover:bg-overlay/[0.04]'
+          ]"
+        >
+          <div :class="['w-8 flex justify-center font-mono text-xs font-medium', task.status === 'in-progress' ? 'text-primary font-semibold' : 'text-text/20']">
+            {{ task.number }}
+          </div>
+          <div class="flex-1 min-w-0">
+            <input
+              v-if="editingId === task.id"
+              class="w-full bg-surface/80 border border-primary/50 rounded px-2 py-1 text-text text-base focus:outline-none"
+              v-model="editValue"
+              @blur="saveTask"
+              @keydown.enter.prevent="saveTask"
+              autofocus
+              :placeholder="t('roadmap.taskPlaceholder')"
+            />
+            <h3
+              v-else
+              :class="['font-medium text-base', task.status === 'done' ? 'text-text/60 line-through decoration-white/20' : 'text-text']"
+            >
+              {{ task.title }}
+            </h3>
+          </div>
+          <div :class="['flex items-center gap-1.5 px-2.5 py-1 rounded-full shadow-sm border', statusConfig(task.status).bg, statusConfig(task.status).border]">
+            <div v-if="statusConfig(task.status).indicator" class="w-2 h-2 rounded-full bg-warning animate-pulse"></div>
+            <span v-if="statusConfig(task.status).icon" :class="['material-symbols-outlined text-lg', statusConfig(task.status).text]">
+              {{ statusConfig(task.status).icon }}
+            </span>
+            <span :class="['text-2xs font-semibold ', statusConfig(task.status).text]">
+              {{ statusConfig(task.status).label }}
+            </span>
+          </div>
+          <button
+            type="button"
+            @click.stop="openMenuId = openMenuId === task.id ? null : task.id"
+            :class="['w-8 h-8 flex items-center justify-center rounded-lg transition-colors', openMenuId === task.id ? 'bg-overlay/10 text-text' : 'text-text/20 hover:text-text hover:bg-overlay/10']"
+          >
+            <span class="material-symbols-outlined">more_horiz</span>
+          </button>
+
+          <div
+            v-if="openMenuId === task.id"
+            class="absolute right-10 top-8 w-48 bg-panel-soft border border-border/10 rounded-xl shadow-float z-30 overflow-hidden ring-1 ring-black/50 origin-top-right animate-in fade-in zoom-in-95 duration-100 "
+          >
+            <div class="p-1.5 space-y-0.5">
+              <button
+                v-for="action in taskActions"
+                :key="action.key"
+                type="button"
+                @click="handleTaskAction(action.id, task)"
+                class="w-full text-left px-3 py-2 text-sm font-medium text-text rounded-lg hover:bg-primary/20 hover:text-primary transition-colors flex items-center gap-2.5 group/item"
+              >
+                <span class="material-symbols-outlined text-lg text-text/50 group-hover/item:text-primary">
+                  {{ action.icon }}
+                </span>
+                {{ t(action.key) }}
+              </button>
+            </div>
+            <div class="h-px bg-overlay/5 mx-2"></div>
+            <div class="p-1.5">
+              <button
+                type="button"
+                @click="handleDelete(task.id)"
+                class="w-full text-left px-3 py-2 text-sm font-medium text-danger rounded-lg hover:bg-danger/10 transition-colors flex items-center gap-2.5"
+              >
+                <span class="material-symbols-outlined text-lg">delete</span> {{ t('roadmap.actions.delete') }}
+              </button>
+            </div>
+          </div>
+
+          <div v-if="openMenuId === task.id" class="fixed inset-0 z-10" @click="openMenuId = null"></div>
+        </div>
+      </div>
+
+      <div class="p-5 border-t border-border/5 bg-overlay/[0.02] flex justify-between items-center rounded-b-2xl">
+        <div class="text-xs text-text/30 font-medium">
+          {{ t('roadmap.footer', { count: tasks.length, percent: completion }) }}
+        </div>
+        <button
+          type="button"
+          @click="handleAddTask"
+          class="px-5 py-2.5 bg-primary hover:bg-primary-hover text-on-primary text-sm font-semibold rounded-xl transition active:scale-95 flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-lg">add</span> {{ t('roadmap.addTask') }}
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+// 路线图弹窗：展示并编辑目标与任务列表。
+import { computed, nextTick, ref, watch } from 'vue';
+import { storeToRefs } from 'pinia';
+import { useI18n } from 'vue-i18n';
+import type { RoadmapTask, RoadmapTaskStatus } from '../types';
+import { useProjectStore } from '@/features/workspace/projectStore';
+
+const emit = defineEmits<{ (e: 'close'): void }>();
+
+const openMenuId = ref<number | null>(null);
+const editingId = ref<number | null>(null);
+const editValue = ref('');
+const listRef = ref<HTMLDivElement | null>(null);
+
+const { t } = useI18n();
+
+const projectStore = useProjectStore();
+const { roadmap } = storeToRefs(projectStore);
+const { updateRoadmap } = projectStore;
+const objectiveValue = ref('');
+
+const taskActions = [
+  { id: 0, key: 'roadmap.actions.edit', icon: 'edit' },
+  { id: 1, key: 'roadmap.actions.changeOrder', icon: 'swap_vert' },
+  { id: 2, key: 'roadmap.actions.markPriority', icon: 'flag' }
+];
+
+const tasks = ref<RoadmapTask[]>([]);
+
+const syncFromStore = () => {
+  objectiveValue.value = roadmap.value.objective;
+  tasks.value = roadmap.value.tasks;
+};
+
+const persistRoadmap = async () => {
+  await updateRoadmap({
+    objective: objectiveValue.value.trim() || roadmap.value.objective,
+    tasks: tasks.value
+  });
+};
+
+watch([editingId, () => tasks.value.length], async () => {
+  if (editingId.value && listRef.value) {
+    await nextTick();
+    listRef.value.scrollTop = listRef.value.scrollHeight;
+  }
+});
+
+const statusConfig = (status: RoadmapTaskStatus) => {
+  switch (status) {
+    case 'done':
+      return {
+        bg: 'bg-success/10',
+        border: 'border-success/20',
+        text: 'text-success',
+        icon: 'check_circle',
+        label: t('roadmap.status.done')
+      };
+    case 'in-progress':
+      return {
+        bg: 'bg-warning/10',
+        border: 'border-warning/20',
+        text: 'text-warning',
+        icon: null,
+        label: t('roadmap.status.inProgress'),
+        indicator: true
+      };
+    default:
+      return {
+        bg: 'bg-overlay/5',
+        border: 'border-border/10',
+        text: 'text-text/40',
+        icon: 'radio_button_unchecked',
+        label: t('roadmap.status.pending')
+      };
+  }
+};
+
+const handleAddTask = () => {
+  const newId = Math.max(0, ...tasks.value.map((task) => task.id)) + 1;
+  tasks.value = [
+    ...tasks.value,
+    {
+      id: newId,
+      number: newId.toString().padStart(2, '0'),
+      title: '',
+      status: 'pending'
+    }
+  ];
+  editingId.value = newId;
+  editValue.value = '';
+  void persistRoadmap();
+};
+
+const saveTask = () => {
+  if (editingId.value === null) return;
+
+  tasks.value = tasks.value.map((task) =>
+    task.id === editingId.value ? { ...task, title: editValue.value.trim() || t('roadmap.newTask') } : task
+  );
+  editingId.value = null;
+  void persistRoadmap();
+};
+
+const handleDelete = (id: number) => {
+  tasks.value = tasks.value.filter((task) => task.id !== id);
+  if (openMenuId.value === id) {
+    openMenuId.value = null;
+  }
+  void persistRoadmap();
+};
+
+const handleTaskAction = (index: number, task: RoadmapTask) => {
+  if (index === 0) {
+    editingId.value = task.id;
+    editValue.value = task.title;
+    openMenuId.value = null;
+  }
+};
+
+const completion = computed(() => {
+  const doneCount = tasks.value.filter((task) => task.status === 'done').length;
+  return Math.round((doneCount / Math.max(tasks.value.length, 1)) * 100);
+});
+
+watch(
+  roadmap,
+  () => {
+    syncFromStore();
+  },
+  { immediate: true, deep: true }
+);
+</script>

@@ -1,0 +1,27 @@
+--- Testing claude ---
+Found at: C:\Users\Nigam\AppData\Roaming\npm\claude.cmd
+Status: exit code: 0
+Stdout: 2.1.228 (Claude Code)
+Stderr: 
+
+--- Testing coder ---
+Not installed on this system.
+
+--- Testing opencode ---
+Found at: C:\Users\Nigam\AppData\Roaming\npm\opencode.cmd
+Status: exit code: 0
+Stdout: 1.18.24
+Stderr: 
+
+--- Testing agy ---
+Found at: C:\Users\Nigam\AppData\Local\agy\bin\agy.exe
+Status: exit code: 0
+Stdout: 1.1.23
+Stderr: 
+
+--- Testing hermes ---
+Not installed on this system.
+
+--- Testing odysseus ---
+Not installed on this system.
+

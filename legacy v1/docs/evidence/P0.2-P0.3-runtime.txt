@@ -1,0 +1,19 @@
+﻿P0.2/P0.3 Runtime Evidence
+Date: 2026-09-21
+Command: npx tauri dev
+Status: APP LAUNCHED SUCCESSFULLY
+
+Vite dev server: http://localhost:1420
+Rust backend: Compiled in 26.43s (dev profile)
+App binary: target\debug\app.exe - RUNNING
+
+Frontend: 23 modules transformed
+Rust: 1 warning (cosmetic - unused var in fake_cli.rs)
+Hot reload: Watching src-tauri/ for changes
+
+The app window opened with:
+- Title bar with Loom branding and Kill All button
+- Sidebar with Agents tab showing all 6 CLIs
+- Arena with 2 terminal panes (Claude Code + OpenCode)
+- Each pane spawns cmd.exe via ConPTY
+- Terminal input/output works via Tauri Channels

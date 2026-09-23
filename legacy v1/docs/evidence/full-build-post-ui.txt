@@ -1,0 +1,15 @@
+﻿Full Build Evidence (Post UI Overhaul)
+Date: 2026-09-20
+Command: npx tauri build
+Exit Code: 0
+Build Time: 1m 38s (release)
+
+Frontend: tsc + vite in 1.40s (23 modules)
+Rust: 1 warning (unused var in fake_cli.rs - cosmetic)
+
+Outputs:
+  - EXE: D:\Loom\loom-desktop\src-tauri\target\release\app.exe
+  - MSI: D:\Loom\loom-desktop\src-tauri\target\release\bundle\msi\Loom_0.1.0_x64_en-US.msi
+  - NSIS: D:\Loom\loom-desktop\src-tauri\target\release\bundle\nsis\Loom_0.1.0_x64-setup.exe
+
+Vault Validation: 19 files, 0 errors, 0 warnings

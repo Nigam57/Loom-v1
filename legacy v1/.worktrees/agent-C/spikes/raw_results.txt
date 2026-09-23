@@ -1,0 +1,61 @@
+--- S1_ConPTY ---
+STDOUT:
+Hello PTY 
+
+STDERR:
+
+CODE: 0
+--- S2_Headless ---
+STDOUT:
+2.1.228 (Claude Code)
+
+STDERR:
+
+CODE: 0
+--- S4_Git_Init ---
+STDOUT:
+Initialized empty Git repository in D:/Loom/s4_test/.git/
+
+STDERR:
+
+CODE: 0
+--- S4_Git_Commit ---
+STDOUT:
+[master (root-commit) 991d334] init
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file.txt
+
+STDERR:
+
+CODE: 0
+--- S4_Git_Worktree ---
+STDOUT:
+HEAD is now at 991d334 init
+
+STDERR:
+Preparing worktree (new branch 'test-branch')
+
+CODE: 0
+--- S4_Git_Worktree_Check ---
+STDOUT:
+ Volume in drive D is New Volume
+ Volume Serial Number is 8AC4-3832
+
+ Directory of D:\Loom\s4_tree
+
+19-09-2026  22:44    <DIR>          .
+19-09-2026  22:44    <DIR>          ..
+19-09-2026  22:44                10 file.txt
+               1 File(s)             10 bytes
+               2 Dir(s)  629,746,167,808 bytes free
+
+STDERR:
+
+CODE: 0
+--- S7_SQLite_Vec ---
+STDOUT:
+3.49.1
+
+STDERR:
+
+CODE: 0

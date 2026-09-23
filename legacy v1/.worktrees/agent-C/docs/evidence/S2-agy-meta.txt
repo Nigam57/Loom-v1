@@ -1,0 +1,6 @@
+# S2 Spike: agy Headless JSON
+CLI: agy
+Version: 1.1.23
+Timestamp: 2026-09-21T18:34:34+05:30
+Flags verified from: agy --help (no --verbose, no --max-turns, no --include-partial-messages)
+Exit code: 

@@ -1,0 +1,46 @@
+<template>
+  <div class="fixed top-5 right-5 z-[60] flex flex-col gap-2 items-end pointer-events-none">
+    <div
+      v-for="toast in toasts"
+      :key="toast.id"
+      :class="[
+        'pointer-events-auto flex items-center gap-3 px-4 py-3 rounded-xl border shadow-float bg-panel/90 text-text/90',
+        toneClasses(toast.tone)
+      ]"
+      @click="removeToast(toast.id)"
+    >
+      <span class="material-symbols-outlined text-lg opacity-80">{{ toneIcon(toast.tone) }}</span>
+      <span class="text-xs font-semibold leading-snug">{{ toast.message }}</span>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+// Toast 容器：展示全局提示并支持点击关闭。
+import { storeToRefs } from 'pinia';
+import { useToastStore, type ToastTone } from '@/stores/toastStore';
+
+const toastStore = useToastStore();
+const { toasts } = storeToRefs(toastStore);
+const { removeToast } = toastStore;
+
+const toneClasses = (tone: ToastTone) => {
+  if (tone === 'error') {
+    return 'border-danger/40 bg-danger/10';
+  }
+  if (tone === 'success') {
+    return 'border-success/40 bg-success/10';
+  }
+  return 'border-border/10 bg-overlay/5';
+};
+
+const toneIcon = (tone: ToastTone) => {
+  if (tone === 'error') {
+    return 'error';
+  }
+  if (tone === 'success') {
+    return 'check_circle';
+  }
+  return 'info';
+};
+</script>

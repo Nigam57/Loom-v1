@@ -1,0 +1,78 @@
+<template>
+  <div class="fixed inset-0 z-[150] flex items-center justify-center bg-black/60 animate-in fade-in duration-200">
+    <div class="w-full max-w-sm bg-panel-strong border border-border/10 rounded-2xl shadow-float p-6 ring-1 ring-border/5">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-text font-semibold text-lg">{{ t('members.manage.title') }}</h3>
+        <button type="button" @click="emit('close')" class="text-text/40 hover:text-text transition-colors">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <div class="mb-6 text-center">
+        <AvatarBadge
+          :avatar="member.avatar"
+          :label="member.name"
+          class="w-20 h-20 rounded-full mx-auto mb-3 border-2 border-border/10"
+        />
+        <p class="text-text/40 text-xs font-semibold ">{{ roleLabel }}</p>
+      </div>
+
+      <div class="space-y-4">
+        <div>
+          <label class="text-xs font-medium text-faint mb-1.5 block">{{ t('members.manage.displayName') }}</label>
+          <input
+            v-model="name"
+            class="w-full bg-surface/80 border border-border/10 rounded-xl px-4 py-2.5 text-text focus:border-primary/50 focus:ring-1 focus:ring-primary/50 outline-none transition"
+          />
+        </div>
+
+        <button type="button" @click="emit('save', member.id, name)" class="w-full py-2.5 bg-primary text-on-primary font-semibold rounded-xl hover:bg-primary-hover transition-colors">
+          {{ t('settings.saveChanges') }}
+        </button>
+
+        <template v-if="showRemove">
+          <div class="h-px bg-overlay/5 my-2"></div>
+
+          <button type="button" @click="emit('remove', member.id)" class="w-full py-2.5 text-danger hover:bg-danger/10 font-medium rounded-xl transition-colors flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined text-lg">person_remove</span>
+            {{ t('members.manage.remove') }}
+          </button>
+        </template>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+// 成员管理弹窗：用于修改成员状态与操作。
+import { computed, ref, watch, toRef } from 'vue';
+import { useI18n } from 'vue-i18n';
+import type { Member } from '../types';
+import AvatarBadge from '@/shared/components/AvatarBadge.vue';
+
+const props = defineProps<{ member: Member; showRemove?: boolean }>();
+const emit = defineEmits<{ (e: 'close'): void; (e: 'save', id: string, name: string): void; (e: 'remove', id: string): void }>();
+
+const member = toRef(props, 'member');
+const name = ref(member.value.name);
+const showRemove = computed(() => props.showRemove !== false);
+
+const { t } = useI18n();
+
+const roleLabel = computed(() => {
+  if (member.value.roleType === 'assistant') {
+    return t('members.roles.member');
+  }
+  if (member.value.roleKey) {
+    return t(member.value.roleKey);
+  }
+  if (member.value.role) {
+    return member.value.role;
+  }
+  return t('members.roles.member');
+});
+
+watch(member, (nextMember) => {
+  name.value = nextMember.name;
+});
+</script>

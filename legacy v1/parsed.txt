@@ -1,0 +1,249 @@
+﻿golutra
+ä½¿ç”¨èµ›åšç›‘å·¥ç³»ç»Ÿï¼ŒæŒ‡æŒ¥ä½ çš„ AI ç‰›é©¬ã€‚
+Use Cyberpunk Overseer System: Command your AI workforce.
+
+
+  
+    
+  
+
+
+  
+  
+  
+
+
+  English Â·
+  ä¸­æ–‡ Â·
+  Website Â·
+  Releases Â·
+  Video (EN) Â·
+  è§†é¢‘ (ä¸­æ–‡)
+
+
+  
+    
+    
+    
+    
+    
+    
+    
+  
+  
+    Claude Code
+    Gemini CLI
+    Codex CLI
+    OpenCode
+    Qwen Code
+    OpenClaw
+    ä»»æ„ CLI
+  
+
+
+  Keep your CLI. Orchestrate your AI workforce. 
+  ä¿ç•™ä½ ç†Ÿæ‚‰çš„ CLIï¼Œç¼–æŽ’ä½ çš„ AI å‘˜å·¥ã€‚
+
+
+  
+
+
+English
+Tagline
+golutra â€” One Person. One AI Squad.
+What is golutra
+golutra is a next-generation multi-agent workspace that transforms your existing CLI tools into a unified AI collaboration hub. No project migration. No command relearning. No terminal switching. Just parallel execution, automated orchestration, and real-time result tracking.
+Click agent avatars to inspect logs, inject prompts directly into terminal streams, or monitor execution while your AI team runs silently in the background. Built with Vue 3 + Rust as a Tauri desktop app for Windows, macOS, and Linux, golutra upgrades â€œone person + one editorâ€ into â€œone person + an AI squad.â€ It replaces single-threaded, manual context switching with coordinated, multi-agent automation.
+golutra is designed for long-running AI collaboration, not just short interactive sessions. You can define custom workflows for very different scenarios, import or export workflow templates in one click, and build automation systems that fit software teams, a one-person AI company, Werewolf templates, automated novel writing, Xiaohongshu publishing, video production, and other cross-industry use cases.
+Related Projects
+Memory Layer
+Golutra can call EverOS as a memory layer for long-running agents, preserving context, project knowledge, and cross-task continuity across sessions.
+EverOS
+MCP Connection
+golutra-mcp provides a more stable way to connect external tools and agents through golutra-cli, making it easier to integrate Golutra with MCP-based workflows.
+golutra-mcp
+Key Highlights
+
+Unlimited multi-agent parallel execution
+Automated orchestration from analysis to deployment
+Custom workflows with one-click template import/export for long-running automation
+CLI compatibility: Claude, Gemini, Codex, OpenCode, Qwen, OpenClaw, Any CLI
+Stealth terminal with context-aware intelligence
+Visual interface combined with command-line power
+
+Keep your familiar commands. golutra wires them into a complete engineering loop.
+CLI Compatibility Layer
+Keep your existing CLI and instantly upgrade it into a collaboration hub.
+No terminal switch, no workflow rewrite, no re-training. Keep using the CLI you already trust while adding multi-agent collaboration, orchestration, and result handoff to your current engineering pipeline.
+Supported CLI tools:
+
+Claude Code
+Gemini CLI
+Codex CLI
+OpenCode
+Qwen Code
+OpenClaw
+Any CLI
+
+What you keep:
+
+No project migration
+No command relearning
+No single-tool lock-in
+
+With your existing CLI, you can now:
+
+Run parallel multi-agent execution with automatic result handoff
+Track status and scheduling across CLIs in one orchestration layer
+Reuse session-level context and prompts without repeating requirements
+Aggregate test, build, and regression output into one delivery path
+
+Keep your familiar commands. golutra wires them into a complete engineering loop.
+Stealth Terminal
+Command line power, visual interface simplicity.
+Seamlessly integrate code execution with a background terminal that adapts to your workflow. Experience the raw power of command-line control without leaving the visual interface.
+
+Direct Injection: inject prompts directly into the terminal stream for instant agent feedback loops.
+Context Awareness: the terminal understands your project context, offering intelligent autocompletion for complex tasks.
+
+Why Beyond Traditional IDEs
+Traditional IDE workflows are usually "single-threaded + manual context switching."
+golutra is "parallel multi-agent execution + automated orchestration."
+Repository Scope
+This repository is for source code storage and releases.
+Business Email: golutra@hotmail.com
+Official Website: https://www.golutra.com/
+Video: https://youtu.be/KpAgetjYfoY
+Discord: https://discord.gg/QyNVu56mpY
+How to effectively report issues with runtime logs: #44
+Security Policy: See SECURITY.md
+Author
+This software is independently developed and maintained by seekskyworld.
+Open Source Status
+The source code is now open. This is three months of work, with many late nights spent on the architecture and details. Itâ€™s all to make the experience better; suggestions and bugs can be submitted on GitHub.
+Whatâ€™s Next
+golutra is only at its beginning.
+The next evolution is a true CEO Agent layer built on top of the commander system. Instead of manually organizing workflows, golutra will move toward a long-running autonomous coordinator that can operate for up to a month without human supervision, continuously produce value, precisely assemble sub-agents, manage layered memory, and expand into a self-sustaining agent network.
+Upcoming capabilities include:
+
+CEO Agent â€” a real top-level orchestrator designed to run for up to a month without human supervision, continuously deliver useful output, precisely construct sub-agents, and coordinate layered memory across roles and tasks.
+Infinite Agent Network â€” AI automatically creates agents and expands them into a continuously growing collaboration network as objectives evolve.
+Agent Self-Evolution â€” agents dynamically optimize their own structure, role boundaries, and division of labor to improve long-running execution.
+Cross-Device / Cross-Environment Migration â€” systems autonomously migrate across devices and environments so they can keep operating, adapting, and "surviving" beyond a single runtime context.
+Mobile Remote Control â€” monitor agents, review logs, intervene, and redirect tasks directly from your phone.
+Unified Agent Interface â€” a standardized agent protocol for seamless integration into the orchestration layer.
+
+The mission is clear:
+evolve from a multi-agent tool system into a digital life system, improving overall collaboration efficiency by 1300% or more through better coordination, specialization, adaptation, and long-horizon autonomy.
+One person. One AI squad.
+Evolving from an AI squad into an organized, coordinated AI team.
+Usage License
+
+Using golutra as a tool to build commercial software is allowed.
+Code and deliverables produced by users through golutra belong to the users.
+This project follows the Business Source License 1.1 (BSL 1.1) open-source license.
+
+Downloads
+
+Releases: https://github.com/golutra/golutra/releases
+
+
+ä¸­æ–‡
+æ ‡è¯­
+golutra â€” ä¸€ä¸ªäººï¼Œä¸€ä¸ª AI å†›å›¢ã€‚
+ä»€ä¹ˆæ˜¯ golutra
+golutra æ˜¯æ–°ä¸€ä»£å¤šæ™ºèƒ½ä½“å·¥ä½œç©ºé—´ï¼ŒæŠŠä½ çŽ°æœ‰çš„ CLI å·¥å…·å‡çº§ä¸ºç»Ÿä¸€çš„ AI åä½œä¸­æž¢ã€‚ä¸ç”¨è¿ç§»é¡¹ç›®ï¼Œä¸ç”¨é‡å­¦å‘½ä»¤ï¼Œä¸ç”¨åˆ‡æ¢ç»ˆç«¯ï¼Œåªéœ€å¹¶è¡Œæ‰§è¡Œã€è‡ªåŠ¨ç¼–æŽ’ä¸Žå®žæ—¶ç»“æžœè¿½è¸ªã€‚
+ä½ å¯ä»¥ç‚¹å‡» Agent å¤´åƒæŸ¥çœ‹æ—¥å¿—ï¼Œåœ¨ç»ˆç«¯æµä¸­ç›´æŽ¥æ³¨å…¥æç¤ºè¯ï¼Œæˆ–åœ¨ AI å›¢é˜ŸåŽå°è¿è¡Œæ—¶å®žæ—¶ç›‘æŽ§æ‰§è¡Œã€‚golutra ç”± Vue 3 + Rust æž„å»ºï¼Œé‡‡ç”¨ Tauri æ¡Œé¢æž¶æž„ï¼Œæ”¯æŒ Windowsã€macOS å’Œ Linuxï¼Œå°†â€œä¸€ä¸ªäºº + ä¸€ä¸ªç¼–è¾‘å™¨â€å‡çº§ä¸ºâ€œä¸€ä¸ªäºº + AI å†›å›¢â€ï¼Œç”¨å¤šæ™ºèƒ½ä½“åä½œæ›¿ä»£å•çº¿ç¨‹çš„äººå·¥ä¸Šä¸‹æ–‡åˆ‡æ¢ã€‚
+golutra ä¸åªæ˜¯ç”¨äºŽçŸ­æ—¶å¯¹è¯ï¼Œæ›´é€‚åˆé•¿æœŸè¿è¡Œçš„ AI åä½œç³»ç»Ÿã€‚ä½ å¯ä»¥è‡ªå®šä¹‰å·¥ä½œæµï¼Œä¸€é”®å¯¼å…¥å¯¼å‡ºå·¥ä½œæµæ¨¡æ¿ï¼ŒåŽ»æ­å»ºé€‚ç”¨äºŽä¸åŒè¡Œä¸šåœºæ™¯çš„ AI è‡ªåŠ¨åŒ–ç³»ç»Ÿï¼Œæ— è®ºæ˜¯ä¸€äººå…¬å¸çš„ AI å›¢é˜Ÿã€ç‹¼äººæ€æ¨¡ç‰ˆã€è‡ªåŠ¨åŒ–å†™å°è¯´ã€è‡ªåŠ¨åŒ–å‘å¸ƒå°çº¢ä¹¦ï¼Œè¿˜æ˜¯è‡ªåŠ¨åŒ–åˆ¶é€ è§†é¢‘ï¼Œéƒ½å¯ä»¥ä½œä¸ºåŒä¸€å¥—ç³»ç»Ÿé‡Œçš„ä¸åŒæ¨¡ç‰ˆæ¥è¿è¡Œã€‚
+ç›¸å…³é¡¹ç›®
+è®°å¿†å±‚
+Golutra å¯ä»¥è°ƒç”¨ EverOS ä½œä¸ºé•¿æœŸè¿è¡Œ Agent çš„è®°å¿†å±‚ï¼Œåœ¨è·¨ä¼šè¯ã€è·¨ä»»åŠ¡ä¸­ä¿ç•™ä¸Šä¸‹æ–‡ã€é¡¹ç›®çŸ¥è¯†ä¸Žæ‰§è¡Œè¿žç»­æ€§ã€‚
+EverOS
+MCP è¿žæŽ¥
+golutra-mcp æä¾›é€šè¿‡ golutra-cli æ›´ç¨³å®šè¿žæŽ¥å¤–éƒ¨å·¥å…·ä¸Ž Agent çš„æ–¹å¼ï¼Œæ–¹ä¾¿å°† Golutra æŽ¥å…¥åŸºäºŽ MCP çš„å·¥ä½œæµã€‚
+golutra-mcp
+æ ¸å¿ƒäº®ç‚¹
+
+å¤šæ™ºèƒ½ä½“å¹¶è¡Œæ‰§è¡Œï¼ˆä¸é™æ•°é‡ï¼‰
+ä»Žåˆ†æžåˆ°éƒ¨ç½²çš„è‡ªåŠ¨ç¼–æŽ’
+è‡ªå®šä¹‰å·¥ä½œæµä¸Žæ¨¡æ¿ä¸€é”®å¯¼å…¥å¯¼å‡ºï¼Œé€‚åˆé•¿æœŸè¿è¡Œçš„è‡ªåŠ¨åŒ–ç³»ç»Ÿ
+CLI å…¼å®¹ï¼šClaudeã€Geminiã€Codexã€OpenCodeã€Qwenã€OpenClawã€ä»»æ„ CLI
+éšå½¢ç»ˆç«¯ä¸Žä¸Šä¸‹æ–‡æ„ŸçŸ¥æ™ºèƒ½
+å¯è§†åŒ–ç•Œé¢ç»“åˆå‘½ä»¤è¡Œèƒ½åŠ›
+
+ä¿ç•™ä½ ç†Ÿæ‚‰çš„å‘½ä»¤ï¼Œgolutra å°†å…¶ä¸²è”æˆå®Œæ•´å·¥ç¨‹é—­çŽ¯ã€‚
+CLI å…¼å®¹ç”Ÿæ€
+ä¿ç•™ä½ åŽŸæœ¬çš„ CLIï¼Œä¹Ÿèƒ½ä¸€é”®å‡çº§æˆåä½œä¸­æž¢ã€‚
+ä¸æ¢ç»ˆç«¯ã€ä¸æ”¹ä¹ æƒ¯ã€ä¸é‡å­¦æµç¨‹ã€‚ç›´æŽ¥æ²¿ç”¨ä½ æ­£åœ¨ä½¿ç”¨çš„ CLIï¼ŒæŠŠå¤šæ™ºèƒ½ä½“åä½œã€ä»»åŠ¡ç¼–æŽ’ä¸Žç»“æžœå›žä¼ èƒ½åŠ›æŽ¥åˆ°çŽ°æœ‰å·¥ç¨‹é“¾è·¯é‡Œã€‚
+æ”¯æŒçš„ CLI å·¥å…·ï¼š
+
+Claude Code
+Gemini CLI
+Codex CLI
+OpenCode
+Qwen Code
+OpenClaw
+ä»»æ„ CLI
+
+ä½ å°†ä¿ç•™ï¼š
+
+æ— éœ€è¿ç§»é¡¹ç›®
+æ— éœ€é‡å­¦å‘½ä»¤
+æ— éœ€ç»‘å®šå•ä¸€å·¥å…·
+
+åªç”¨åŽŸæœ¬ CLIï¼Œä¹Ÿèƒ½åšåˆ°ï¼š
+
+å¤šæ™ºèƒ½ä½“å¹¶è¡Œæ‰§è¡Œï¼Œç»“æžœè‡ªåŠ¨å›žä¼ åˆ°åŒä¸€å·¥ä½œæµ
+è·¨ CLI çš„ç»Ÿä¸€è°ƒåº¦ä¸ŽçŠ¶æ€è¿½è¸ªï¼Œå‡å°‘æ‰‹åŠ¨åˆ‡æ¢æˆæœ¬
+ä¼šè¯çº§ä¸Šä¸‹æ–‡è®°å¿†ä¸ŽæŒ‡ä»¤å¤ç”¨ï¼Œé¿å…é‡å¤è§£é‡Šéœ€æ±‚
+æµ‹è¯•ã€æž„å»ºã€å›žå½’ä¿¡æ¯é›†ä¸­æ±‡æ€»ï¼Œäº¤ä»˜è·¯å¾„æ›´çŸ­
+
+ä½ ç»§ç»­ä½¿ç”¨ç†Ÿæ‚‰çš„å‘½ä»¤ï¼Œgolutra è´Ÿè´£æŠŠèƒ½åŠ›ä¸²è”æˆå®Œæ•´å·¥ç¨‹é—­çŽ¯ã€‚
+éšå½¢ç»ˆç«¯
+å‘½ä»¤è¡Œçº§èƒ½åŠ›ï¼Œå¯è§†åŒ–ç•Œé¢èˆ¬æ˜“ç”¨ã€‚
+å°†ä»£ç æ‰§è¡Œä¸ŽåŽå°ç»ˆç«¯æ— ç¼èžåˆï¼Œè®©å·¥ä½œæµå®žæ—¶å“åº”ã€‚æ— éœ€ç¦»å¼€å¯è§†ç•Œé¢ï¼Œä¹Ÿèƒ½èŽ·å¾—å‘½ä»¤è¡Œçš„åŽŸç”ŸæŽŒæŽ§åŠ›ã€‚
+
+ç›´è¿žæ³¨å…¥ï¼šå°†æç¤ºè¯ç›´æŽ¥æ³¨å…¥ç»ˆç«¯æµï¼Œæž„å»ºå³æ—¶æ™ºèƒ½ä½“åé¦ˆé—­çŽ¯ã€‚
+ä¸Šä¸‹æ–‡æ„ŸçŸ¥ï¼šç»ˆç«¯ç†è§£é¡¹ç›®ä¸Šä¸‹æ–‡ï¼Œå¯ä¸ºå¤æ‚ä»»åŠ¡æä¾›æ›´æ™ºèƒ½çš„è‡ªåŠ¨è¡¥å…¨ã€‚
+
+ä¸ºä»€ä¹ˆè¶…è¶Šä¼ ç»Ÿ IDE
+ä¼ ç»Ÿ IDE å·¥ä½œæµé€šå¸¸æ˜¯â€œå•çº¿ç¨‹ + äººå·¥åˆ‡æ¢ä¸Šä¸‹æ–‡â€ã€‚
+golutra æ˜¯â€œå¤š Agent å¹¶è¡Œ + è‡ªåŠ¨åŒ–ç¼–æŽ’åä½œâ€ã€‚
+ä»“åº“è¯´æ˜Ž
+è¿™ä¸ªä»“åº“ç”¨äºŽæºä»£ç å­˜æ”¾å’Œç‰ˆæœ¬å‘å¸ƒã€‚
+å•†åŠ¡é‚®ç®±: golutra@hotmail.com
+å®˜ç½‘: https://www.golutra.com/
+è§†é¢‘åœ°å€: https://www.bilibili.com/video/BV1qcfhBFEpP/?spm_id_from=333.1387.homepage.video_card.click
+äº¤æµç¾¤é“¾æŽ¥: #15
+é—®é¢˜å¦‚ä½•æœ‰æ•ˆåé¦ˆå¹¶é™„å¸¦è¿è¡Œæ—¥å¿—: #44
+å®‰å…¨ç­–ç•¥: è¯¦è§ SECURITY.md
+ä½œè€…
+æœ¬è½¯ä»¶ç”± seekskyworld ç‹¬ç«‹å¼€å‘ä¸Žç»´æŠ¤ã€‚
+å¼€æºçŠ¶æ€
+é¡¹ç›®æºç å·²ç»å¼€æºï¼Œè¿™æ˜¯æˆ‘ä¸‰ä¸ªæœˆçš„å¿ƒè¡€ï¼Œå¾ˆå¤šä¸ªå¤œæ™šéƒ½åœ¨æ‰“ç£¨æž¶æž„ä¸Žç»†èŠ‚ã€‚éƒ½æ˜¯ä¸ºäº†ä½“éªŒèƒ½æ›´å¥½ï¼Œæœ‰ç›¸å…³å»ºè®®å’Œ bug å¯ä»¥åœ¨ GitHub æäº¤ã€‚
+åŽç»­å‘å±•
+golutra ä»å¤„äºŽæ—©æœŸé˜¶æ®µã€‚
+ä¸‹ä¸€é˜¶æ®µä¼šåœ¨çŽ°æœ‰æŒ‡æŒ¥å±‚ä¹‹ä¸Šå®žçŽ°çœŸæ­£çš„ CEO Agentã€‚ç›¸æ¯”æ‰‹åŠ¨ç»„ç»‡å·¥ä½œæµï¼Œgolutra ä¼šé€æ­¥èµ°å‘é•¿æœŸè¿è¡Œçš„è‡ªåŠ¨åŒ–åè°ƒä¸­æž¢ï¼Œç›®æ ‡æ˜¯åœ¨ä¸€ä¸ªæœˆæ— äººæ‰˜ç®¡çš„æƒ…å†µä¸‹æŒç»­è¿è¡Œã€æŒç»­äº§å‡ºä»·å€¼ï¼Œç²¾ç¡®æž„å»ºå­ Agentã€ç®¡ç†åˆ†å±‚è®°å¿†ï¼Œå¹¶ä¸æ–­æ‰©å±•ä¸ºè‡ªæˆ‘ç»´æŒçš„æ™ºèƒ½ä½“ç½‘ç»œã€‚
+å³å°†åŠ å…¥çš„èƒ½åŠ›åŒ…æ‹¬ï¼š
+
+CEO Agent â€”â€” çœŸæ­£çš„é¡¶å±‚è°ƒåº¦è€…ï¼Œç›®æ ‡æ˜¯ä¸€ä¸ªæœˆä¸ç”¨äººç›‘ç®¡ï¼ŒæŒç»­è‡ªä¸»è¿è¡Œå¹¶äº§å‡ºä»·å€¼ï¼Œèƒ½å¤Ÿç²¾ç¡®æž„å»ºå­ Agentï¼Œå¹¶åœ¨ä¸åŒè§’è‰²ä¸Žä»»åŠ¡ä¹‹é—´å®žçŽ°è®°å¿†åˆ†å±‚ã€‚
+æ— é™æ‰©å±•çš„æ™ºèƒ½ä½“ç½‘ç»œ â€”â€” AI è‡ªåŠ¨åˆ›å»º Agentï¼Œå¹¶éšç€ç›®æ ‡æ¼”åŒ–ä¸æ–­æ‰©å±•åä½œç½‘ç»œã€‚
+Agent è‡ªæˆ‘è¿›åŒ– â€”â€” æ™ºèƒ½ä½“ä¼šåŠ¨æ€ä¼˜åŒ–è‡ªèº«ç»“æž„ã€è§’è‰²è¾¹ç•Œä¸Žåˆ†å·¥æ–¹å¼ï¼Œæå‡é•¿æœŸè¿è¡Œæ•ˆçŽ‡ã€‚
+è·¨è®¾å¤‡ / è·¨çŽ¯å¢ƒè¿ç§» â€”â€” ç³»ç»Ÿèƒ½å¤Ÿåœ¨ä¸åŒè®¾å¤‡ä¸Žè¿è¡ŒçŽ¯å¢ƒä¹‹é—´è‡ªä¸»è¿ç§»ï¼ŒæŒç»­â€œç”Ÿå­˜â€å¹¶å»¶ç»­æ‰§è¡Œã€‚
+ç§»åŠ¨ç«¯è¿œç¨‹æ“æŽ§ â€”â€” åœ¨æ‰‹æœºä¸Šç›‘æŽ§ Agentã€æŸ¥çœ‹æ—¥å¿—ã€å¹²é¢„ä¸Žé‡å®šå‘ä»»åŠ¡ã€‚
+ç»Ÿä¸€ Agent æŽ¥å£ â€”â€” æ ‡å‡†åŒ–åè®®ï¼Œä¾¿äºŽæ— ç¼æŽ¥å…¥ç¼–æŽ’å±‚ã€‚
+
+ç›®æ ‡æ˜Žç¡®ï¼šä»Žå¤šæ™ºèƒ½ä½“æ‰§è¡Œè¿›åŒ–ä¸ºè‡ªç»„ç»‡ AI å›¢é˜Ÿï¼Œé€šè¿‡æ›´å¥½çš„åè°ƒã€åˆ†å·¥ä¸Žè®°å¿†ï¼Œå°†æ•´ä½“åä½œæ•ˆçŽ‡æå‡ 1300% ä»¥ä¸Šã€‚
+ä¸€ä¸ªäººï¼Œä¸€ä¸ª AI å†›å›¢ã€‚
+ä»Žå·¥å…·ç³»ç»Ÿè¿›ä¸€æ­¥è¿›åŒ–ä¸ºå…·å¤‡è‡ªç»„ç»‡ã€è‡ªé€‚åº”ä¸Žé•¿æœŸè¿è¡Œèƒ½åŠ›çš„æ•°å­—ç”Ÿå‘½ä½“ç³»ã€‚
+ä½¿ç”¨è®¸å¯
+
+å…è®¸å°† golutra ä½œä¸ºå·¥å…·ç”¨äºŽå•†ä¸šè½¯ä»¶å¼€å‘ã€‚
+ç”¨æˆ·é€šè¿‡ golutra äº§å‡ºçš„ä»£ç ä¸Žäº¤ä»˜æˆæžœå½’ç”¨æˆ·æ‰€æœ‰ã€‚
+é¡¹ç›®éµå®ˆ Business Source License 1.1 (BSL 1.1) å¼€æºåè®®ã€‚
+
+ä¸‹è½½
+
+Releases: https://github.com/golutra/golutra/releases
+
+

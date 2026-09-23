@@ -1,0 +1,11 @@
+﻿P0.1 Evidence: Tauri Build Success
+Date: 2026-09-20
+Command: npx tauri build
+Exit Code: 0
+
+Outputs:
+  - EXE: D:\Loom\loom-desktop\src-tauri\target\release\app.exe
+  - MSI: D:\Loom\loom-desktop\src-tauri\target\release\bundle\msi\Loom_0.1.0_x64_en-US.msi
+  - NSIS: D:\Loom\loom-desktop\src-tauri\target\release\bundle\nsis\Loom_0.1.0_x64-setup.exe
+
+Build time: ~2m 33s (release profile)

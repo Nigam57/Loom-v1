@@ -1,0 +1,5 @@
+{"type":"system","subtype":"init","session_id":"sess-1","cwd":"C:\\tmp","tools":["Bash"]}
+{"type":"assistant","message":{"content":[{"type":"text","text":"Let me look."},{"type":"tool_use","id":"toolu_1","name":"Bash","input":{"command":"ls"}}]},"session_id":"sess-1"}
+{"type":"user","message":{"content":[{"type":"tool_result","tool_use_id":"toolu_1","content":"a.txt","is_error":false}]},"session_id":"sess-1"}
+{"type":"assistant","message":{"content":[{"type":"text","text":"There is one file: a.txt."}]},"session_id":"sess-1"}
+{"type":"result","subtype":"success","is_error":false,"result":"There is one file: a.txt.","session_id":"sess-1","total_cost_usd":0.0123,"usage":{"input_tokens":120,"output_tokens":30,"cache_read_input_tokens":4000,"output_tokens_details":{"thinking_tokens":7}}}

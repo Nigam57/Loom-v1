@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>loom</title>
+    <script>
+      (() => {
+        const root = document.documentElement;
+        const themeKey = 'loom-theme';
+        const localeKey = 'loom-locale';
+        const isValidTheme = (value) => value === 'light' || value === 'dark' || value === 'system';
+        const isValidLocale = (value) => value === 'en-US' || value === 'zh-CN';
+        const storedTheme = window.localStorage.getItem(themeKey);
+        const storedLocale = window.localStorage.getItem(localeKey);
+        const theme = isValidTheme(storedTheme) ? storedTheme : 'dark';
+        root.dataset.theme = theme;
+        const resolvedTheme = theme === 'system'
+          ? (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+          : theme;
+        root.dataset.resolvedTheme = resolvedTheme;
+        root.classList.toggle('dark', resolvedTheme === 'dark');
+        const accent = window.localStorage.getItem('loom-accent');
+        root.dataset.accent = accent && /^[a-z]+$/.test(accent) ? accent : 'amber';
+        const locale = isValidLocale(storedLocale) ? storedLocale : (isValidLocale(root.lang) ? root.lang : 'en-US');
+        root.lang = locale;
+        window.__LOOM_THEME__ = theme;
+        window.__LOOM_LOCALE__ = locale;
+      })();
+    </script>
+    <style>
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: oklch(var(--scrollbar-thumb));
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: oklch(var(--scrollbar-thumb-hover));
+      }
+    </style>
+</head>
+  <body class="bg-background text-text font-sans h-screen overflow-hidden">
+    <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

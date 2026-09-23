@@ -1,0 +1,13 @@
+﻿P0.4/P0.5 Evidence: Cargo Tests
+Date: 2026-09-20
+Command: cargo test --manifest-path src-tauri/Cargo.toml
+
+test result: ok. 4 passed; 0 failed; 0 ignored
+
+Tests:
+  - adapter::fake_cli::tests::test_fake_cli_echo ... ok
+  - adapter::fake_cli::tests::test_fake_cli_scripted ... ok
+  - router::tests::test_scripted_handoff ... ok
+  - router::tests::test_max_turns_guard ... ok
+
+Time: 0.33s
